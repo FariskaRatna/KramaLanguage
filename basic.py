@@ -569,7 +569,7 @@ class Parser:
     if not res.error and self.current_tok.type != TT_EOF:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Token cannot appear after previous tokens"
+        "Token mboten angsal muncul sasampunipun tokens sakderengipun"
       ))
     return res
 
@@ -640,7 +640,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected 'WANGSUL', 'SAMBET', 'MENDEL', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'MBOTEN'"
+        "Dipunajeng-ajeng 'WANGSUL', 'SAMBET', 'MENDEL', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' utawi 'MBOTEN'"
       ))
     return res.success(expr)
 
@@ -654,7 +654,7 @@ class Parser:
       if self.current_tok.type != TT_IDENTIFIER:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          "Expected identifier"
+          "Identifier ingkang dipunajeng-ajeng"
         ))
 
       var_name = self.current_tok
@@ -664,7 +664,7 @@ class Parser:
       if self.current_tok.type != TT_EQ:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          "Expected '='"
+          "Dipunajeng-ajeng '='"
         ))
 
       res.register_advancement()
@@ -678,7 +678,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'MBOTEN'"
+        "Dipunajeng-ajeng 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' utawi 'MBOTEN'"
       ))
 
     return res.success(node)
@@ -700,7 +700,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected int, float, identifier, '+', '-', '(', '[', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN' or 'MBOTEN'"
+        "Dipunajeng-ajeng int, float, identifier, '+', '-', '(', '[', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN' utawi 'MBOTEN'"
       ))
 
     return res.success(node)
@@ -745,7 +745,7 @@ class Parser:
         if res.error:
           return res.failure(InvalidSyntaxError(
             self.current_tok.pos_start, self.current_tok.pos_end,
-            "Expected ')', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'MBOTEN'"
+            "Dipunajeng-ajeng ')', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' utawi 'MBOTEN'"
           ))
 
         while self.current_tok.type == TT_COMMA:
@@ -758,7 +758,7 @@ class Parser:
         if self.current_tok.type != TT_RPAREN:
           return res.failure(InvalidSyntaxError(
             self.current_tok.pos_start, self.current_tok.pos_end,
-            f"Expected ',' or ')'"
+            f"Dipunajeng-ajeng ',' utawi ')'"
           ))
 
         res.register_advancement()
@@ -797,7 +797,7 @@ class Parser:
       else:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          "Expected ')'"
+          "Dipunajeng-ajeng ')'"
         ))
 
     elif tok.type == TT_LSQUARE:
@@ -827,7 +827,7 @@ class Parser:
 
     return res.failure(InvalidSyntaxError(
       tok.pos_start, tok.pos_end,
-      "Expected int, float, identifier, '+', '-', '(', '[', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN'"
+      "Dipunajeng-ajeng int, float, identifier, '+', '-', '(', '[', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN'"
     ))
 
   def list_expr(self):
@@ -838,7 +838,7 @@ class Parser:
     if self.current_tok.type != TT_LSQUARE:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected '['"
+        f"Dipunajeng-ajeng '['"
       ))
 
     res.register_advancement()
@@ -852,7 +852,7 @@ class Parser:
       if res.error:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          "Expected ']', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'MBOTEN'"
+          "Dipunajeng-ajeng ']', 'VAR', 'MENAWI', 'KAGEM', 'NALIKA', 'FUN', int, float, identifier, '+', '-', '(', '[' utawi 'MBOTEN'"
         ))
 
       while self.current_tok.type == TT_COMMA:
@@ -865,7 +865,7 @@ class Parser:
       if self.current_tok.type != TT_RSQUARE:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected ',' or ']'"
+          f"Dipunajeng-ajeng ',' utawi ']'"
         ))
 
       res.register_advancement()
@@ -909,7 +909,7 @@ class Parser:
         else:
           return res.failure(InvalidSyntaxError(
             self.current_tok.pos_start, self.current_tok.pos_end,
-            "Expected 'AKHIR'"
+            "Dipunajeng-ajeng 'AKHIR'"
           ))
       else:
         expr = res.register(self.statement())
@@ -940,7 +940,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, case_keyword):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected '{case_keyword}'"
+        f"Dipunajeng-ajeng '{case_keyword}'"
       ))
 
     res.register_advancement()
@@ -952,7 +952,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'LAJENG'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'LAJENG'"
+        f"Dipunajeng-ajeng 'LAJENG'"
       ))
 
     res.register_advancement()
@@ -992,7 +992,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'KAGEM'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'KAGEM'"
+        f"Dipunajeng-ajeng 'KAGEM'"
       ))
 
     res.register_advancement()
@@ -1001,7 +1001,7 @@ class Parser:
     if self.current_tok.type != TT_IDENTIFIER:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected identifier"
+        f"Dipunajeng-ajeng identifier"
       ))
 
     var_name = self.current_tok
@@ -1011,7 +1011,7 @@ class Parser:
     if self.current_tok.type != TT_EQ:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected '='"
+        f"Dipunajeng-ajeng '='"
       ))
     
     res.register_advancement()
@@ -1023,7 +1023,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'NGANTOS'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'NGANTOS'"
+        f"Dipunajeng-ajeng 'NGANTOS'"
       ))
     
     res.register_advancement()
@@ -1044,7 +1044,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'LAJENG'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'LAJENG'"
+        f"Dipunajeng-ajeng 'LAJENG'"
       ))
 
     res.register_advancement()
@@ -1060,7 +1060,7 @@ class Parser:
       if not self.current_tok.matches(TT_KEYWORD, 'AKHIR'):
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected 'AKHIR'"
+          f"Dipunajeng-ajeng 'AKHIR'"
         ))
 
       res.register_advancement()
@@ -1079,7 +1079,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'NAILKA'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'NAILKA'"
+        f"Dipunajeng-ajeng 'NAILKA'"
       ))
 
     res.register_advancement()
@@ -1091,7 +1091,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'LAJENG'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'LAJENG'"
+        f"Dipunajeng-ajeng 'LAJENG'"
       ))
 
     res.register_advancement()
@@ -1107,7 +1107,7 @@ class Parser:
       if not self.current_tok.matches(TT_KEYWORD, 'AKHIR'):
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected 'AKHIR'"
+          f"Dipunajeng-ajeng 'AKHIR'"
         ))
 
       res.register_advancement()
@@ -1126,7 +1126,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'FUN'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'FUN'"
+        f"Dipunajeng-ajeng 'FUN'"
       ))
 
     res.register_advancement()
@@ -1139,14 +1139,14 @@ class Parser:
       if self.current_tok.type != TT_LPAREN:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected '('"
+          f"Dipunajeng-ajeng '('"
         ))
     else:
       var_name_tok = None
       if self.current_tok.type != TT_LPAREN:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected identifier or '('"
+          f"Dipunajeng-ajeng identifier utawi '('"
         ))
     
     res.register_advancement()
@@ -1165,7 +1165,7 @@ class Parser:
         if self.current_tok.type != TT_IDENTIFIER:
           return res.failure(InvalidSyntaxError(
             self.current_tok.pos_start, self.current_tok.pos_end,
-            f"Expected identifier"
+            f"Dipunajeng-ajeng identifier"
           ))
 
         arg_name_toks.append(self.current_tok)
@@ -1175,13 +1175,13 @@ class Parser:
       if self.current_tok.type != TT_RPAREN:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected ',' or ')'"
+          f"Dipunajeng-ajeng ',' utawi ')'"
         ))
     else:
       if self.current_tok.type != TT_RPAREN:
         return res.failure(InvalidSyntaxError(
           self.current_tok.pos_start, self.current_tok.pos_end,
-          f"Expected identifier or ')'"
+          f"Dipunajeng-ajeng identifier utawi ')'"
         ))
 
     res.register_advancement()
@@ -1204,7 +1204,7 @@ class Parser:
     if self.current_tok.type != TT_NEWLINE:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected '->' or NEWLINE"
+        f"Dipunajeng-ajeng '->' utawi NEWLINE"
       ))
 
     res.register_advancement()
@@ -1216,7 +1216,7 @@ class Parser:
     if not self.current_tok.matches(TT_KEYWORD, 'AKHIR'):
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        f"Expected 'AKHIR'"
+        f"Dipunajeng-ajeng 'AKHIR'"
       ))
 
     res.register_advancement()
@@ -1369,7 +1369,7 @@ class Value:
     return RTResult().failure(self.illegal_operation())
 
   def copy(self):
-    raise Exception('No copy method defined')
+    raise Exception('Mboten wonten metode penyalinan ingkang dipuntemtukaken')
 
   def is_true(self):
     return False
@@ -1378,7 +1378,7 @@ class Value:
     if not other: other = self
     return RTError(
       self.pos_start, other.pos_end,
-      'Illegal operation',
+      'Operasi ingkang ilegal',
       self.context
     )
 
@@ -1410,7 +1410,7 @@ class Number(Value):
       if other.value == 0:
         return None, RTError(
           other.pos_start, other.pos_end,
-          'Division by zero',
+          'Dipunperang kaliyan nol',
           self.context
         )
 
@@ -1546,7 +1546,7 @@ class List(Value):
       except:
         return None, RTError(
           other.pos_start, other.pos_end,
-          'Element at this index could not be removed from list because index is out of bounds',
+          'Elemen wonten indeks menika mboten keparing dipunbusek saking daftar amargi indeks wonten jawi wates',
           self.context
         )
     else:
@@ -1567,7 +1567,7 @@ class List(Value):
       except:
         return None, RTError(
           other.pos_start, other.pos_end,
-          'Element at this index could not be retrieved from list because index is out of bounds',
+          'Elemen wonten indeks menika mboten keparing dipunpundhut saking daftar amargi indeks wonten jawi wates',
           self.context
         )
     else:
